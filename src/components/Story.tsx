@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import Lantern from './Lantern';
 
 export default function Story() {
   return (
@@ -13,7 +14,7 @@ export default function Story() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="space-y-8"
         >
-          <h2 className="text-gold uppercase tracking-[0.2em] text-xs font-semibold mb-4 hover:text-ivory hover:drop-shadow-[0_0_8px_rgba(198,169,107,0.8)] transition-all duration-500 cursor-default">La Rencontre</h2>
+          <h2 className="text-gold uppercase tracking-[0.2em] text-sm md:text-base font-semibold mb-4 hover:text-ivory hover:drop-shadow-[0_0_8px_rgba(198,169,107,0.8)] transition-all duration-500 cursor-default">La Rencontre</h2>
           <p className="font-serif text-2xl md:text-5xl leading-relaxed font-light text-ivory/90">
             Deux histoires, deux cultures, deux trajectoires… <br className="hidden md:block" />
             <span className="italic text-gold">Jusqu’à ce que tout se rencontre.</span>
@@ -24,6 +25,7 @@ export default function Story() {
       {/* Thailand Proposal Section */}
       <div className="relative w-full min-h-[70vh] md:min-h-screen flex items-center justify-center py-20 md:py-32">
         {/* Background removed for seamless continuity */}
+        <Lantern />
 
         <div className="relative z-20 max-w-3xl mx-auto px-6 text-center">
           <motion.div
@@ -33,9 +35,10 @@ export default function Story() {
             transition={{ duration: 1.5, ease: "easeOut" }}
             className="space-y-12"
           >
-            <h2 className="text-gold uppercase tracking-[0.2em] text-xs font-semibold hover:text-ivory hover:drop-shadow-[0_0_8px_rgba(198,169,107,0.8)] transition-all duration-500 cursor-default">La Demande</h2>
+            <h2 className="text-gold uppercase tracking-[0.2em] text-sm md:text-base font-semibold hover:text-ivory hover:drop-shadow-[0_0_8px_rgba(198,169,107,0.8)] transition-all duration-500 cursor-default">La Demande</h2>
             <p className="font-serif text-xl md:text-4xl leading-relaxed font-light text-ivory/90">
-              Sous le ciel illuminé de Thaïlande,<br />
+              Cette nuit-là, en Thaïlande,<br />
+              sous des milliers de lanternes dans le ciel,<br />
               <span className="italic">une promesse a été faite.</span>
             </p>
           </motion.div>

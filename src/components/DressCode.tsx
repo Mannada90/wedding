@@ -71,16 +71,20 @@ export default function DressCode() {
           className="glass-card rounded-[3rem] p-12 md:p-24 space-y-16"
         >
           <div className="space-y-6">
-            <h2 className="text-gold uppercase tracking-[0.3em] text-xs font-semibold cursor-default">Dress Code</h2>
-            <h3 className="font-serif text-4xl md:text-8xl font-light italic tracking-tight text-gradient-gold pb-4">
+            <h2 className="text-gold uppercase tracking-[0.4em] text-lg md:text-xl font-bold cursor-default drop-shadow-md">
+              Dress Code
+            </h2>
+            <h3 className="font-serif text-6xl md:text-8xl font-light italic tracking-tight text-gradient-gold pb-4 drop-shadow-lg">
               Paris sans frontières
             </h3>
           </div>
 
-          <p className="font-serif text-xl md:text-4xl leading-relaxed font-light text-ivory/90 max-w-3xl mx-auto">
-            Le temps d’une soirée, on célèbre toutes nos origines.<br className="hidden md:block" />
-            Venez en tenue traditionnelle de fête de votre pays —<br className="hidden md:block" />
-            <span className="italic text-gold">Wax, Pha Chung Hang, Caftans…</span>
+          <p className="font-serif text-2xl md:text-4xl leading-relaxed font-light text-ivory/90 max-w-4xl mx-auto">
+            Le temps d’une soirée, on célèbre toutes nos origines.
+            <br className="hidden md:block" />
+            {' '}On rêve ONU ! Venez en tenue traditionnelle de fête de votre pays !
+            <br className="hidden md:block" />
+            {' '}<span className="italic text-gold font-medium">Wax, Xout Lao, Caftans…</span>
           </p>
 
           <motion.p 

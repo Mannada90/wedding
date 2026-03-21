@@ -30,9 +30,9 @@ export default function WeddingDetails() {
         />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+      <div className="relative z-10 max-w-3xl mx-auto px-6">
         
-        {/* Civil Ceremony */}
+        {/* Celebration */}
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -40,36 +40,7 @@ export default function WeddingDetails() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="glass-card rounded-3xl p-8 md:p-12 flex flex-col items-center text-center space-y-8"
         >
-          <div className="w-full aspect-[4/5] overflow-hidden mb-4 relative rounded-2xl border border-white/5">
-            <img 
-              src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2073&auto=format&fit=crop" 
-              alt="Paris Architecture" 
-              className="w-full h-full object-cover opacity-80"
-              referrerPolicy="no-referrer"
-            />
-          </div>
-          
-          <h3 className="text-gold uppercase tracking-[0.2em] text-sm font-semibold">Cérémonie civile</h3>
-          
-          <div className="space-y-4 font-serif text-xl md:text-2xl font-light leading-relaxed">
-            <p className="font-medium text-ivory">Vendredi 10 juillet à 15h</p>
-            <p className="text-ivory/60 text-lg">
-              Mairie du 10e arrondissement<br />
-              72 Rue du Faubourg Saint-Martin<br />
-              75010 Paris
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Celebration */}
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="glass-card rounded-3xl p-8 md:p-12 flex flex-col items-center text-center space-y-8"
-        >
-          <div className="w-full aspect-[4/5] overflow-hidden mb-4 relative rounded-2xl border border-white/5">
+          <div className="w-full aspect-[16/9] md:aspect-[2/1] overflow-hidden mb-4 relative rounded-2xl border border-white/5">
             <img 
               src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop" 
               alt="Celebration Venue" 
@@ -78,11 +49,11 @@ export default function WeddingDetails() {
             />
           </div>
 
-          <h3 className="text-gold uppercase tracking-[0.2em] text-sm font-semibold">Célébration</h3>
+          <h3 className="text-gold uppercase tracking-[0.2em] text-lg md:text-xl font-semibold">Célébration</h3>
           
-          <div className="space-y-4 font-serif text-xl md:text-2xl font-light leading-relaxed">
-            <p className="font-medium text-ivory">Samedi 11 juillet à 17h30</p>
-            <p className="text-ivory/60 text-lg">
+          <div className="space-y-4 font-serif text-2xl md:text-4xl font-light leading-relaxed">
+            <p className="font-medium text-ivory">Samedi 11 juillet à 18h</p>
+            <p className="text-ivory/60 text-xl md:text-2xl">
               Les Salons Hoche<br />
               9 Avenue Hoche<br />
               75008 Paris

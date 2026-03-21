@@ -85,7 +85,7 @@ export default function Sparkles({ hasEntered }: { hasEntered?: boolean }) {
     const initParticles = () => {
       particles = [];
       const isMobile = window.innerWidth < 768;
-      const density = isMobile ? 25000 : 12000; // Fewer particles on mobile
+      const density = isMobile ? 30000 : 12000; // Middle-ground density for mobile
       const numParticles = Math.floor((canvas.width * canvas.height) / density);
       for (let i = 0; i < numParticles; i++) {
         particles.push(new Particle());

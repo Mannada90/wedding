@@ -5,7 +5,7 @@ export default function Starfield({ hasEntered }: { hasEntered?: boolean }) {
   // 1. The Transformation Particles
   // Extremely high density starfield: 75% tiny, 20% medium, 5% bright
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  const particles = useMemo(() => Array.from({ length: isMobile ? 200 : 800 }).map((_, i) => {
+  const particles = useMemo(() => Array.from({ length: isMobile ? 100 : 800 }).map((_, i) => {
     const typeRand = Math.random();
     let size, blur, opacity, color, glow;
     
@@ -22,15 +22,15 @@ export default function Starfield({ hasEntered }: { hasEntered?: boolean }) {
     } else if (typeRand < 0.95) {
       // Medium
       size = 1.5 + Math.random() * 2;
-      blur = Math.random() > 0.5 ? 'blur-[1px]' : 'blur-0';
+      blur = isMobile ? 'blur-0' : (Math.random() > 0.5 ? 'blur-[1px]' : 'blur-0');
       opacity = 0.4 + Math.random() * 0.5;
-      glow = `0 0 ${2 + Math.random() * 4}px ${color}`;
+      glow = isMobile ? `0 0 ${1 + Math.random() * 2}px ${color}` : `0 0 ${2 + Math.random() * 4}px ${color}`;
     } else {
       // Bright
       size = 2.5 + Math.random() * 2.5;
-      blur = 'blur-[1px]';
+      blur = isMobile ? 'blur-0' : 'blur-[1px]';
       opacity = 0.7 + Math.random() * 0.3;
-      glow = `0 0 ${5 + Math.random() * 10}px ${color}, 0 0 ${15 + Math.random() * 15}px ${color}`;
+      glow = isMobile ? `0 0 ${3 + Math.random() * 5}px ${color}` : `0 0 ${5 + Math.random() * 10}px ${color}, 0 0 ${15 + Math.random() * 15}px ${color}`;
     }
 
     const startAngle = Math.random() * Math.PI * 2;
@@ -79,7 +79,7 @@ export default function Starfield({ hasEntered }: { hasEntered?: boolean }) {
   }), [isMobile]);
 
   // 2. Occasional Shimmer Stars (appear after transformation)
-  const shimmerStars = useMemo(() => Array.from({ length: isMobile ? 20 : 60 }).map((_, i) => {
+  const shimmerStars = useMemo(() => Array.from({ length: isMobile ? 12 : 60 }).map((_, i) => {
     const colors = ['#ffffff', '#A3C2FF', '#D4A3FF', '#C6A96B'];
     const color = colors[Math.floor(Math.random() * colors.length)];
     return {
@@ -89,7 +89,7 @@ export default function Starfield({ hasEntered }: { hasEntered?: boolean }) {
       delay: 4.5 + Math.random() * 4,
       size: Math.random() * 3 + 1,
       color: color,
-      glow: `0 0 ${4 + Math.random() * 8}px ${color}, 0 0 ${10 + Math.random() * 10}px ${color}`
+      glow: isMobile ? `0 0 ${2 + Math.random() * 4}px ${color}` : `0 0 ${4 + Math.random() * 8}px ${color}, 0 0 ${10 + Math.random() * 10}px ${color}`
     };
   }), [isMobile]);
 
@@ -121,13 +121,13 @@ export default function Starfield({ hasEntered }: { hasEntered?: boolean }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 5, delay: 2.5 }}
-        className="absolute inset-0 z-0 flex items-center justify-center mix-blend-screen"
+        className="absolute inset-0 z-0 flex items-center justify-center mix-blend-normal md:mix-blend-screen"
       >
         {/* Deep blue/purple core band */}
-        <div className="absolute w-[120vw] h-[40vh] bg-[radial-gradient(ellipse_at_center,rgba(65,105,225,0.15)_0%,transparent_70%)] blur-[60px] transform -rotate-6" />
-        <div className="absolute w-[100vw] h-[30vh] bg-[radial-gradient(ellipse_at_center,rgba(138,43,226,0.12)_0%,transparent_70%)] blur-[50px] transform rotate-3" />
+        <div className="absolute w-[120vw] h-[40vh] bg-[radial-gradient(ellipse_at_center,rgba(65,105,225,0.15)_0%,transparent_70%)] blur-[40px] md:blur-[60px] transform -rotate-6" />
+        <div className="absolute w-[100vw] h-[30vh] bg-[radial-gradient(ellipse_at_center,rgba(138,43,226,0.12)_0%,transparent_70%)] blur-[35px] md:blur-[50px] transform rotate-3" />
         {/* Subtle gold dust */}
-        <div className="absolute w-[90vw] h-[25vh] bg-[radial-gradient(ellipse_at_center,rgba(198,169,107,0.08)_0%,transparent_70%)] blur-[40px]" />
+        <div className="absolute w-[90vw] h-[25vh] bg-[radial-gradient(ellipse_at_center,rgba(198,169,107,0.08)_0%,transparent_70%)] blur-[30px] md:blur-[40px]" />
       </motion.div>
 
       {/* Curved Horizon Line (Waitlister style) */}
@@ -135,7 +135,7 @@ export default function Starfield({ hasEntered }: { hasEntered?: boolean }) {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 5, delay: 2.5, ease: "easeOut" }}
-        className="absolute -bottom-[60vw] md:-bottom-[40vw] left-1/2 -translate-x-1/2 w-[200vw] md:w-[150vw] h-[100vw] md:h-[80vw] rounded-[100%] border-t border-white/10 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.03)_0%,transparent_50%)] z-0 shadow-[0_-20px_80px_rgba(163,194,255,0.07)]"
+        className="absolute -bottom-[60vw] md:-bottom-[40vw] left-1/2 -translate-x-1/2 w-[200vw] md:w-[150vw] h-[100vw] md:h-[80vw] rounded-[100%] border-t border-white/10 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.03)_0%,transparent_50%)] z-0 shadow-[0_-10px_40px_rgba(163,194,255,0.04)] md:shadow-[0_-20px_80px_rgba(163,194,255,0.07)]"
       />
       
       {/* Horizon Glow */}
@@ -143,7 +143,7 @@ export default function Starfield({ hasEntered }: { hasEntered?: boolean }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 5, delay: 2.5 }}
-        className="absolute bottom-0 left-0 right-0 h-[30vh] bg-gradient-to-t from-[#1a2b4c]/40 via-[#1a2b4c]/5 to-transparent blur-[30px] z-0"
+        className="absolute bottom-0 left-0 right-0 h-[30vh] bg-gradient-to-t from-[#1a2b4c]/40 via-[#1a2b4c]/5 to-transparent blur-[20px] md:blur-[30px] z-0"
       />
 
       {/* INTRO: The Cosmic Core */}

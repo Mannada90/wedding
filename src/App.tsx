@@ -21,6 +21,7 @@ export default function App() {
   return (
     <main className="bg-ink text-ivory min-h-screen selection:bg-gold selection:text-ink relative overflow-hidden">
       <IntroScreen hasEntered={hasEntered} onEnter={() => setHasEntered(true)} />
+      <MusicPlayer hasEntered={hasEntered} />
       
       {/* Only render the main content after entering to prevent scroll and layout issues */}
       <div className={`transition-opacity duration-1000 ${hasEntered ? 'opacity-100' : 'opacity-0 pointer-events-none h-screen overflow-hidden'}`}>
@@ -34,7 +35,6 @@ export default function App() {
           <RSVP />
           <Footer />
         </div>
-        <MusicPlayer hasEntered={hasEntered} />
       </div>
     </main>
   );

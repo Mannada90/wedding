@@ -27,7 +27,7 @@ export default function Hero({ hasEntered }: { hasEntered?: boolean }) {
           initial={{ opacity: 0, y: 10 }}
           animate={hasEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
           transition={{ duration: 1.5, delay: 3.5, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[#C6A96B] uppercase tracking-[0.4em] text-[10px] md:text-xs font-medium mb-8 opacity-90"
+          className="text-[#C6A96B] uppercase tracking-[0.4em] text-xs md:text-sm font-medium mb-8 opacity-90"
         >
           Une célébration sans frontières
         </motion.p>
@@ -47,7 +47,7 @@ export default function Hero({ hasEntered }: { hasEntered?: boolean }) {
           initial={{ opacity: 0 }}
           animate={hasEntered ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 1.5, delay: 3.9, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white/60 font-serif text-lg md:text-xl max-w-md mx-auto leading-relaxed tracking-wide"
+          className="text-white/60 font-serif text-xl md:text-2xl max-w-lg mx-auto leading-relaxed tracking-wide"
         >
           Deux cultures, une histoire, un moment unique.
         </motion.p>
